@@ -7,13 +7,16 @@
              '("melpa" . "https://melpa.org/packages/") t)
 
 ;;; Hey there cutie
+(use-package diminish :ensure)
 (use-package ivy
   :ensure
+  :diminish ivy-mode
   :config
   (ivy-mode))
 
 (use-package counsel
   :ensure
+  :diminish counsel-mode
   :config
   (counsel-mode))
 
@@ -27,16 +30,20 @@
 
 (use-package flycheck
   :ensure
+  :diminish flycheck-mode
   :config
   (global-flycheck-mode))
 
 (use-package company
   :ensure
+  :diminish company-mode
   :config
   (global-company-mode))
 
 (use-package smartparens
   :ensure
+  :diminish smartparens-strict-mode
+  :diminish smartparens-mode
   :config
   (require 'smartparens-config)
   (add-hook 'prog-mode-hook #'turn-on-smartparens-strict-mode))
@@ -64,16 +71,6 @@
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
-(use-package diminish
-  :ensure
-  :config
-  (diminish 'company-mode)
-  (diminish 'flycheck-mode)
-  (diminish 'counsel-mode)
-  (diminish 'ivy-mode)
-  (diminish 'smartparens-strict-mode)
-  (diminish 'smartparens-mode))
-
 (use-package markdown-mode
   :ensure)
 
@@ -85,6 +82,9 @@
 ;; very cool kanye
 (global-hl-line-mode t)
 (show-paren-mode t)
+
+;; automatically wrap text in org mode.
+(add-hook 'auto-fill-mode 'org-mode-hook)
 
 ;; show marker for empty lines at end of page
 (setq-default indicate-empty-lines t)
