@@ -8,6 +8,7 @@
 
 ;;; Hey there cutie
 (use-package diminish :ensure)
+
 (use-package ivy
   :ensure
   :diminish ivy-mode
@@ -59,6 +60,13 @@
 (use-package sly
   :ensure)
 
+;; golang
+(use-package go-mode
+  :ensure
+  :config
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save))
+
 ;;; the look and feel of shits
 (use-package leuven-theme
   :ensure
@@ -73,6 +81,12 @@
 
 (use-package markdown-mode
   :ensure)
+
+;;; workflow specific
+(use-package org-journal
+  :ensure
+  :config
+  (customize-set-variable 'org-journal-dir "~/documents/journal/"))
 
 ;;; misc
 (menu-bar-mode 0)
@@ -104,7 +118,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (magit sly ace-window diminish rainbow-delimiters smartparens-config smartparens company flycheck counsel leuven-theme leuven ivy use-package))))
+    (elixir-mode go-mode org-journal magit sly ace-window diminish rainbow-delimiters smartparens-config smartparens company flycheck counsel leuven-theme leuven ivy use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
