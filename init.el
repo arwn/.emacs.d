@@ -98,7 +98,7 @@
 (show-paren-mode t)
 
 ;; automatically wrap text in org mode.
-(add-hook 'auto-fill-mode 'org-mode-hook)
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
 
 ;; show marker for empty lines at end of page
 (setq-default indicate-empty-lines t)
