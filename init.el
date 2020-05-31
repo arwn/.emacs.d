@@ -67,6 +67,22 @@
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
 
+;; ocaml!
+(use-package tuareg
+  :ensure
+  :config
+  (let ((opam-share (ignore-errors
+		      (car (process-lines "opam" "config" "var" "share")))))
+    (when (and opam-share (file-directory-p opam-share))
+      ;; Register Merlin
+      (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
+      (autoload 'merlin-mode "merlin" nil t nil)
+      ;; Automatically start it in OCaml buffers
+      (add-hook 'tuareg-mode-hook 'merlin-mode t)
+      (add-hook 'caml-mode-hook 'merlin-mode t)
+      ;; Use opam switch to lookup ocamlmerlin binary
+      (setq merlin-command 'opam))))
+
 ;;; the look and feel of shits
 (use-package leuven-theme
   :ensure
@@ -118,7 +134,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (elixir-mode go-mode org-journal magit sly ace-window diminish rainbow-delimiters smartparens-config smartparens company flycheck counsel leuven-theme leuven ivy use-package))))
+    (tuareg org-mind-map elixir-mode go-mode org-journal magit sly ace-window diminish rainbow-delimiters smartparens-config smartparens company flycheck counsel leuven-theme leuven ivy use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
