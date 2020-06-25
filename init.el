@@ -55,6 +55,7 @@
 (use-package ace-window
   :ensure
   :config
+  (global-set-key "\M-\S-o" 'ace-swap-window)
   (global-set-key "\M-o" 'ace-window))
 
 ;;; language specific configs
@@ -87,6 +88,8 @@
       (setq merlin-command 'opam))))
 
 ;;; the look and feel of shits
+(set-frame-font "IBM Plex Mono 11")
+
 (use-package leuven-theme
   :ensure
   :config
