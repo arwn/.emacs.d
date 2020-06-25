@@ -41,6 +41,9 @@
   :config
   (global-company-mode))
 
+(use-package which-key
+  :ensure)
+
 (use-package smartparens
   :ensure
   :diminish smartparens-strict-mode
@@ -134,7 +137,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (tuareg org-mind-map elixir-mode go-mode org-journal magit sly ace-window diminish rainbow-delimiters smartparens-config smartparens company flycheck counsel leuven-theme leuven ivy use-package))))
+    (which-key tuareg org-mind-map elixir-mode go-mode org-journal magit sly ace-window diminish rainbow-delimiters smartparens-config smartparens company flycheck counsel leuven-theme leuven ivy use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
