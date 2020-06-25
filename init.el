@@ -42,7 +42,9 @@
   (global-company-mode))
 
 (use-package which-key
-  :ensure)
+  :ensure
+  :config
+  (which-key-mode))
 
 (use-package smartparens
   :ensure
