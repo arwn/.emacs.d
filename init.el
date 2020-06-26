@@ -107,11 +107,6 @@
   :ensure)
 
 ;;; workflow specific
-(use-package org-journal
-  :ensure
-  :config
-  (customize-set-variable 'org-journal-dir "~/documents/journal/"))
-
 ;;; misc
 (menu-bar-mode 0)
 (tool-bar-mode 0)
@@ -142,7 +137,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (which-key tuareg org-mind-map elixir-mode go-mode org-journal magit sly ace-window diminish rainbow-delimiters smartparens-config smartparens company flycheck counsel leuven-theme leuven ivy use-package))))
+    (org-mode which-key tuareg org-mind-map elixir-mode go-mode org-journal magit sly ace-window diminish rainbow-delimiters smartparens-config smartparens company flycheck counsel leuven-theme leuven ivy use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
