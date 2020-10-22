@@ -73,7 +73,7 @@
 
 ;;; misc
 
-(setq-default frame-title-format '("%f"))
+(setq-default frame-title-format '("%b"))
 (setq make-backup-files nil)
 (global-hl-line-mode t)
 (menu-bar-mode 0)
